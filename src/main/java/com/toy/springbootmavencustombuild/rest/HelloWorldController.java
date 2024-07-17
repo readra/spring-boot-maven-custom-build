@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1")
 public class HelloWorldController {
+    public static final String HELLO_WORLD = "Hello World";
+
     /**
      * 안녕하세요!
      *
@@ -20,6 +22,6 @@ public class HelloWorldController {
      */
     @GetMapping("/hello-world")
     public String helloWorld() {
-        return "Hello World";
+        return HELLO_WORLD;
     }
 }
