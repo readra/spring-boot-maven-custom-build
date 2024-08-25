@@ -134,7 +134,7 @@
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-assembly-plugin</artifactId>
 						<configuration>
-							<descriptors>package.xml,document.xml,document_internal.xml,document_site.xml</descriptors>
+							<descriptors>package.xml,document.xml,document_site.xml</descriptors>
 							<outputDirectory>${project.build.directory}/</outputDirectory>
 						</configuration>
 						<executions>
@@ -206,7 +206,7 @@
 							</execution>
 						</executions>
 						<configuration>
-							<mainClass>com.toy.dbsafer.springbootmavencustombuild.site.${site.name}.common.Version</mainClass>
+							<mainClass>com.toy.springbootmavencustombuild.site.${site.name}.common.Version</mainClass>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -238,7 +238,7 @@
 							<backend>html5</backend>
 							<preserveDirectories>true</preserveDirectories>
 							<sourceDirectory>src/main/asciidoc/common</sourceDirectory>
-							<outputDirectory>src/main/resources/static/docs</outputDirectory>
+							<outputDirectory>src/main/resources/static/docs/common</outputDirectory>
 							<attributes>
 								<java-version>${java.version}</java-version>
 								<spring-restdocs-version>${spring-restdocs.version}</spring-restdocs-version>
@@ -296,7 +296,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>com.toy.dbsafer.springbootmavencustombuild.common.Version</mainClass>
+					<mainClass>com.toy.springbootmavencustombuild.common.Version</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -314,6 +314,22 @@
 								<file>${basedir}/build.version.properties</file>
 							</files>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>package.xml,document.xml</descriptors>
+					<outputDirectory>${project.build.directory}/</outputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
